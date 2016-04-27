@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  <title>FPGA Mining - Power Measurements</title>
+  <meta charset="utf-8" />
+  <meta name="description" content="FPGA Mining Hardware" />
+  <meta name="keywords" content="bitcoin, fpga, mining" />
+  <meta name="robots" content="index, follow" />
+
+  <link rel="shortcut icon" href="../../assets/images/favicon.png" type="image/png" />
+  <link rel="icon" href="../../assets/images/favicon.png" type="image/png" />
+  <link rel="apple-touch-icon" href="../../assets/images/apple-touch-icon.png" />
+  
+  <link rel="alternate" type="application/rss+xml" href="../../news/feed" title="FPGA Mining News Feed" />
+
+  <link rel="stylesheet" href="../../assets/styles/styles.css" />
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-1675503-7']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+</head>
+
+<body>
+
+  <header>
+    <h1><a href="../../index.html"><img src="../../assets/images/logo.png" alt="FPGA Mining" /></a></h1>
+  </header><nav class="menu">
+  <ul>
+        <li><a href="../../index.html">Home</a></li>
+        <li><a href="../../products.html">Products</a></li>
+        <li><a class="active" href="../../documentation.html">Documentation</a></li>
+        <li><a href="../../news.1.html">News</a></li>
+        <li><a href="../../gallery.html">Gallery</a></li>
+        <li><a href="../../contact.html">Contact</a></li>
+        <li><a href="../../buy.html">Buy</a></li>
+      </ul>
+</nav><nav class="submenu">
+  <ul>
+        <li><a class="active" href="../hardware.html">Hardware</a></li>
+        <li><a href="../software.html">Software</a></li>
+        <li><a href="../firmware.html">Firmware</a></li>
+                
+  </ul>
+</nav>
+
+<section class="content">
+
+  <article>
+    <h1>Power Measurements</h1>
+    <p><em>Update: New power measurements have been performed for the recent increase in core voltage (VCCINT). All new X6500s shipped after 3/28/2012 will have VCCINT = 1.23V.</em></p>
+
+<p>These tests were performed with an X6500 rev3, equipped with Zalman ZM-NBF47 heatsinks. Airflow was provided with an 80 mm fan at the side. The power consumption of the fan was not included in the measurement. Note that power consumption will vary slightly from board to board.</p>
+
+<p><img src="../../content/03-documentation/01-hardware/04-power-measurements/power_test.jpg" alt="FPGA Mining" /></p>
+
+<p>Current and voltage were measured directly at the board, for a variety of firmware builds and clock rates. Power consumption is shown for both the new core voltage (1.23V) and the old (1.20V). The results are summarized in the following tables.</p>
+
+<p>1.20V:<br />
+<img src="../../content/03-documentation/01-hardware/04-power-measurements/1.20V_table.png" alt="FPGA Mining" /></p>
+
+<p>1.23V:<br />
+<img src="../../content/03-documentation/01-hardware/04-power-measurements/1.23V_table.png" alt="FPGA Mining" /></p>
+
+<p>The peak performance efficiency happens to be at the highest performance, 17.2 W at 400 MH/s, or 23.3 MH/J.</p>
+
+<p><img src="../../content/03-documentation/01-hardware/04-power-measurements/power_voltage_plot.png" alt="FPGA Mining" /></p>
+
+<p><img src="../../content/03-documentation/01-hardware/04-power-measurements/efficiency_voltage_plot.png" alt="FPGA Mining" /></p>
+  </article>
+
+</section>
+
+  <footer>
+    <p>© 2016 FPGA Mining LLC</p>
+  </footer>
+
+</body>
+
+</html>

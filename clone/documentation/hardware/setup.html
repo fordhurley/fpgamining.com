@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  <title>FPGA Mining - Hardware Setup Guide</title>
+  <meta charset="utf-8" />
+  <meta name="description" content="FPGA Mining Hardware" />
+  <meta name="keywords" content="bitcoin, fpga, mining" />
+  <meta name="robots" content="index, follow" />
+
+  <link rel="shortcut icon" href="../../assets/images/favicon.png" type="image/png" />
+  <link rel="icon" href="../../assets/images/favicon.png" type="image/png" />
+  <link rel="apple-touch-icon" href="../../assets/images/apple-touch-icon.png" />
+  
+  <link rel="alternate" type="application/rss+xml" href="../../news/feed" title="FPGA Mining News Feed" />
+
+  <link rel="stylesheet" href="../../assets/styles/styles.css" />
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-1675503-7']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+</head>
+
+<body>
+
+  <header>
+    <h1><a href="../../index.html"><img src="../../assets/images/logo.png" alt="FPGA Mining" /></a></h1>
+  </header><nav class="menu">
+  <ul>
+        <li><a href="../../index.html">Home</a></li>
+        <li><a href="../../products.html">Products</a></li>
+        <li><a class="active" href="../../documentation.html">Documentation</a></li>
+        <li><a href="../../news.1.html">News</a></li>
+        <li><a href="../../gallery.html">Gallery</a></li>
+        <li><a href="../../contact.html">Contact</a></li>
+        <li><a href="../../buy.html">Buy</a></li>
+      </ul>
+</nav><nav class="submenu">
+  <ul>
+        <li><a class="active" href="../hardware.html">Hardware</a></li>
+        <li><a href="../software.html">Software</a></li>
+        <li><a href="../firmware.html">Firmware</a></li>
+                
+  </ul>
+</nav>
+
+<section class="content">
+
+  <article>
+    <h1>Hardware Setup Guide</h1>
+    <h3>Notes About Power and Cooling</h3>
+
+<p>The X6500 requires up to about 20W of power at typical hash rates. Compared to GPU miners, this is a relatively small amount, but it's still a significant amount of power. Cheap or faulty power supplies or bad cabling or connectors can lead to serious problems, including starting a fire. Be very careful.</p>
+
+<p>This power will be dissipated as heat, so proper cooling is crucial. A simple way to provide the necessary airflow is using an 80 mm fan set on it's side next to the X6500. If your heatsink has fins, the board should be oriented such that the air is flowing through the fins of the heat sink. An example of this on a Rev 2 X6500 is shown below:<br />
+<img src="../../content/03-documentation/01-hardware/01-setup/x6500_fan.jpg" alt="FPGA Mining" /></p>
+
+<p>On Rev 3 X6500s, the stock heatsinks have attached fans, which should provide sufficient cooling on their own. Supplementary airflow is always a good idea, to cool the other components on the board and the board itself. A photo of the Rev 3 X6500 with stock heatsinks is shown below:<br />
+<img src="../../content/03-documentation/01-hardware/01-setup/x6500_rev3_heatsinks.jpg" alt="FPGA Mining" /></p>
+
+<p>You will need to experiment with different arrangements to find the one that suits you best.    As a rule of thumb, if the board or heatsinks feel any more than slightly warm to the touch, your cooling is not sufficient. Keep in mind that the core of the FPGA will be much hotter than the heatsink or board because of the thermal resistance between these materials. Higher temperatures of the FPGA will increase power consumption, increase hashing errors, and shorten the life of the FPGA.</p>
+
+<p>For more cooling ideas, take a look at the <a href="../../gallery.html">Gallery</a>.</p>
+
+<p>If you have an X6500 rev 3, the board is equipped with an on board temperature sensor, so it will be easier to determine if your cooling is sufficient (and for the software to detect that something has gone wrong, like a fan failure). Still, you should not rely on this sensor alone. Check your cooling carefully and monitor it occasionally, at least during your initial testing.</p>
+
+<h3>Powering Your X6500</h3>
+
+<p>The X6500 can safely be powered with anything between 5V and 12V DC. The current draw at a given voltage is given by I = V/P, where I is the current, V is the voltage, and P is the power (in watts). Using 20W as a typical power usage, a 5V supply with need to supply at least 4A. A 12V supply will need to supply at least 1.7A. Plan accordingly when purchasing a power supply for your miner (not included). In addition, include a margin of safety on the current limit of a few watts (remember P (watts) = I (amps) * V (volts)).</p>
+
+<p><em>Note that the rev 3 board can also supply power to two fans through the on board 3-pin headers. If these are used, be sure that your power supply can supply enough current to power the FPGAs <strong>and</strong> the fans.</em></p>
+
+<p>The board is equipped with two different connectors for supplying power, so that you can use whichever is more convenient for you. <strong>Do not use both connectors at the same time!</strong> The first is a 4 pin Molex connector, typically seen in a PC for powering various peripherals. This connector is also called a disk drive connector. With a standard ATX power supply, this connector can supply both 5V and 12V, although only one rail is needed for the X6500. The X6500 rev 2 draws from the 5V pin (pin 4), while the X6500 rev 3 draws from the 12V pin. If you would like to power your rev 2 board with 12V, an adapter is needed to bring the 12V line to pin 4. A Molex connector can be easily modified to do this (<a href="setup/molex5V-12V.html">instructions here</a>). The same modification can be used to supply a rev 3 board with 5V.</p>
+
+<p>To power off an ATX PSU that is not <em>also</em> powering a computer, you will need to modify it or use a dummy plug to enable it. This means connecting the ENABLE pin to GND. Cablesaurus.com sells <a href="http://cablesaurus.com/index.php?route=product/product&product_id=45">dummy plugs</a> exactly for this purpose, and there are guides available on the web for doing this yourself.</p>
+
+<p>The second connector is a standard barrel connector with a 5.5 mm outer diameter and 2.1 mm inner diameter. This type of connector is found in many household electronics, so you may have a suitable power supply already. Before connecting it to your expensive X6500, though, you should check the ratings on the label, and verify that it is operating within those ratings. First and foremost, it needs to be center-positive, meaning the voltage is carried on the center pin and the ground return is on the outside of the connector. This can be checked by looking for this symbol on the label: <img src="../../content/03-documentation/01-hardware/01-setup/center-positive.png" width="80px" alt="FPGA Mining" /></p>
+
+<p>Next, you should check that the voltage output is between 5 and 12V. Cheap power supplies can output higher voltages, so to be safe you should check the output with a voltmeter before using it with your X6500. Finally, confirm that the current rating will supply enough power at the given voltage (plus a safety margin).</p>
+
+<h3>Connecting to Your Computer</h3>
+
+<p>The X6500 needs to connect to a computer to receive new work and submit hashes to the pool or bitcoind server. This connection is done with USB. A mini-B connector is used on the board. USB hubs can be used to connect multiple X6500s to a single computer.</p>
+  </article>
+
+</section>
+
+  <footer>
+    <p>© 2016 FPGA Mining LLC</p>
+  </footer>
+
+</body>
+
+</html>

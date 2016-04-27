@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  <title>FPGA Mining - Firmware</title>
+  <meta charset="utf-8" />
+  <meta name="description" content="FPGA Mining Hardware" />
+  <meta name="keywords" content="bitcoin, fpga, mining" />
+  <meta name="robots" content="index, follow" />
+
+  <link rel="shortcut icon" href="../assets/images/favicon.png" type="image/png" />
+  <link rel="icon" href="../assets/images/favicon.png" type="image/png" />
+  <link rel="apple-touch-icon" href="../assets/images/apple-touch-icon.png" />
+  
+  <link rel="alternate" type="application/rss+xml" href="../news/feed" title="FPGA Mining News Feed" />
+
+  <link rel="stylesheet" href="../assets/styles/styles.css" />
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-1675503-7']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+</head>
+
+<body>
+
+  <header>
+    <h1><a href="../index.html"><img src="../assets/images/logo.png" alt="FPGA Mining" /></a></h1>
+  </header><nav class="menu">
+  <ul>
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../products.html">Products</a></li>
+        <li><a class="active" href="../documentation.html">Documentation</a></li>
+        <li><a href="../news.1.html">News</a></li>
+        <li><a href="../gallery.html">Gallery</a></li>
+        <li><a href="../contact.html">Contact</a></li>
+        <li><a href="../buy.html">Buy</a></li>
+      </ul>
+</nav><nav class="submenu">
+  <ul>
+        <li><a href="hardware.html">Hardware</a></li>
+        <li><a href="software.html">Software</a></li>
+        <li><a class="active" href="firmware.html">Firmware</a></li>
+                
+  </ul>
+</nav>
+
+<section class="content">
+
+  <article>
+    <h1>Firmware</h1>
+    <p>The firmware for the X6500 is open source. The source code can be downloaded from the Github repository <a href="https://github.com/progranism/Open-Source-FPGA-Bitcoin-Miner/tree/master/projects/X6000_ztex_comm4">here</a>.</p>
+
+<p>Download links for pre-compiled firmware:</p>
+
+<h3>Revision 4:</h3>
+
+<p><em>Firmware revision 4 gives you the ability to set the clock with a simple command. This means that the software can now automatically reduce the clock if the FPGAs begin to overheat, so it is strongly recommended from the point of view of safety. Unfortunately, the fastest build of the firmware (build 2) can only reliably clock up to about 186 MHz. This will be improved soon, with clock speeds up to, or above, 200 MHz.</em> </p>
+
+<ul>
+<li><a href="../content/03-documentation/03-firmware/x6500-overclocker-0402.bit">x6500-overclocker-0402.bit</a></li>
+</ul>
+
+<h3>Revision 0:</h3>
+
+<p><em>Firmware revision 0 does not have the ability to adjust the clock speed dynamically, so it is no longer recommended.</em></p>
+
+<ul>
+<li><a href="../content/03-documentation/03-firmware/ztexmerge_200mhz.bit">ztexmerge_200mhz.bit</a></li>
+<li><a href="../content/03-documentation/03-firmware/ztexmerge_180mhz.bit">ztexmerge_180mhz.bit</a></li>
+<li><a href="../content/03-documentation/03-firmware/ztexmerge_166mhz.bit">ztexmerge_166mhz.bit</a></li>
+<li><a href="../content/03-documentation/03-firmware/ztexmerge_150mhz.bit">ztexmerge_150mhz.bit</a></li>
+<li><a href="../content/03-documentation/03-firmware/fpgaminer_133mhz.bit">fpgaminer_133mhz.bit</a></li>
+<li><a href="../content/03-documentation/03-firmware/fpgaminer_125mhz.bit">fpgaminer_125mhz.bit</a></li>
+<li><a href="../content/03-documentation/03-firmware/fpgaminer_100mhz.bit">fpgaminer_100mhz.bit</a></li>
+<li><a href="../content/03-documentation/03-firmware/fpgaminer_75mhz.bit">fpgaminer_75mhz.bit</a></li>
+<li><a href="../content/03-documentation/03-firmware/fpgaminer_50mhz.bit">fpgaminer_50mhz.bit</a></li>
+</ul>
+  </article>
+
+</section>
+
+  <footer>
+    <p>© 2016 FPGA Mining LLC</p>
+  </footer>
+
+</body>
+
+</html>

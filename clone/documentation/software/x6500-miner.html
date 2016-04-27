@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  <title>FPGA Mining - x6500-miner Instructions (archived)</title>
+  <meta charset="utf-8" />
+  <meta name="description" content="FPGA Mining Hardware" />
+  <meta name="keywords" content="bitcoin, fpga, mining" />
+  <meta name="robots" content="index, follow" />
+
+  <link rel="shortcut icon" href="../../assets/images/favicon.png" type="image/png" />
+  <link rel="icon" href="../../assets/images/favicon.png" type="image/png" />
+  <link rel="apple-touch-icon" href="../../assets/images/apple-touch-icon.png" />
+  
+  <link rel="alternate" type="application/rss+xml" href="../../news/feed" title="FPGA Mining News Feed" />
+
+  <link rel="stylesheet" href="../../assets/styles/styles.css" />
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-1675503-7']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+</head>
+
+<body>
+
+  <header>
+    <h1><a href="../../index.html"><img src="../../assets/images/logo.png" alt="FPGA Mining" /></a></h1>
+  </header><nav class="menu">
+  <ul>
+        <li><a href="../../index.html">Home</a></li>
+        <li><a href="../../products.html">Products</a></li>
+        <li><a class="active" href="../../documentation.html">Documentation</a></li>
+        <li><a href="../../news.1.html">News</a></li>
+        <li><a href="../../gallery.html">Gallery</a></li>
+        <li><a href="../../contact.html">Contact</a></li>
+        <li><a href="../../buy.html">Buy</a></li>
+      </ul>
+</nav><nav class="submenu">
+  <ul>
+        <li><a href="../hardware.html">Hardware</a></li>
+        <li><a class="active" href="../software.html">Software</a></li>
+        <li><a href="../firmware.html">Firmware</a></li>
+                
+  </ul>
+</nav>
+
+<section class="content">
+
+  <article>
+    <h1>x6500-miner Instructions (archived)</h1>
+    <p><em>x6500-miner has been replaced by the newer, better MPBM. This guide is kept here for historical reference.</em></p>
+
+<p>This is the user guide for x6500-miner, the mining software for the X6500 FPGA Miner. x6500-miner is a set of python scripts for communicating with the X6500 over USB. The software is maintained with a Github repository, so please <a href="https://github.com/fizzisist/x6500-miner">check there</a> for the most recent code. Versioned releases can be downloaded below.</p>
+
+<h1>Download</h1>
+
+<p><a href="https://github.com/fizzisist/x6500-miner/zipball/v0.3">x6500-miner Version 0.3</a><br />
+<a href="https://github.com/fizzisist/x6500-miner">Development tree on Github</a></p>
+
+<p>Old releases:<br />
+<a href="https://github.com/fizzisist/x6500-miner/zipball/v0.2">x6500-miner Version 0.2</a><br />
+<a href="https://github.com/fizzisist/x6500-miner/zipball/v0.11">x6500-miner Version 0.11</a><br />
+<a href="https://github.com/fizzisist/x6500-miner/zipball/v0.1">x6500-miner Version 0.1</a></p>
+
+<h1>Pre-requisites</h1>
+
+<p><a href="http://python.org">Python</a>, the <a href="http://www.ftdichip.com/Drivers/D2XX.htm">FTDI D2XX driver</a>, and <a href="http://bleyer.org/pyusb/">PyUSB</a> are required to run x6500-miner.</p>
+
+<h1>Windows Installation</h1>
+
+<p>The installation process on Windows is very simple. There are 3 steps:</p>
+
+<ol>
+<li>Install <a href="http://www.python.org/download/releases/2.6.7/">Python 2.6.7</a>. A pre-built installer is available <a href="http://www.activestate.com/activepython/downloads">here</a>.</li>
+<li>Install the <a href="http://www.ftdichip.com/Drivers/D2XX.htm">FTDI D2XX drivers</a>.</li>
+<li>Install <a href="http://bleyer.org/pyusb/">PyUSB 1.6</a> using the Windows installer.</li>
+<li>Download x6500-miner.</li>
+</ol>
+
+<p>The only reason that the slightly older version of Python is suggested is because the PyUSB installer is a little out of date. If you'd like to use a different version of Python, you might have to build PyUSB from source (also available <a href="http://bleyer.org/pyusb/">here</a>).</p>
+
+<h1>Linux Installation</h1>
+
+<p>On Linux, you will need to do a little bit more work than on Windows. It has been tested on Ubuntu 11.04. Please let us know how well it works for you, and any tips that might help other users.</p>
+
+<p>Python 2.6 or later should work fine. If you don't have python (usually pre-installed), you can download it from <a href="http://www.python.org/download/">python.org</a> or install it from your package manager (<code>sudo apt-get install</code>).</p>
+
+<p>Install the <a href="http://www.ftdichip.com/Drivers/D2XX.htm">FTDI D2XX drivers</a>. <i>NOTE: The latest version is not compatible with PyUSB, yet. Please use the previous version, available here: <a href="http://dl.dropbox.com/u/13472215/web/libftd2xx1.0.4.tar.gz">libftd2xx1.0.4.tar.gz</a>.</i></p>
+
+<p>Then, you need to install a modified version of PyUSB, which you can download from here: <a href="http://dl.dropbox.com/u/13472215/web/PyUSB-1.6-fizzisist-linux.tar.gz">PyUSB-1.6-fizzisist-linux.tar.gz</a> <small>[1.5 MB]</small>.</p>
+
+<p>To install PyUSB, extract the tar.gz and change into the extracted folder:</p>
+
+<pre><code>$ tar xzvf PyUSB-1.6-fizzisist.tar.gz
+$ cd PyUSB-1.6-fizzisist
+</code></pre>
+
+<p>Edit line 4 of setup.py to match your architecture. For a 64 bit system, the line should read:</p>
+
+<pre><code>ARCH='amd64'
+</code></pre>
+
+<p>For 32 bit, change it to:</p>
+
+<pre><code>ARCH='i386'
+</code></pre>
+
+<p>Build and install it using python:</p>
+
+<pre><code>$ python setup.py build
+$ sudo python setup.py install
+</code></pre>
+
+<p>That should do it!</p>
+
+<h1>Mac Installation</h1>
+
+<p>Because Mac OS X is so similar to Linux, the installation and usage is very similar. The x6500-miner has had the least amount of testing on Mac, though, so your mileage may vary.</p>
+
+<p>First, download and install the <a href="http://www.ftdichip.com/Drivers/D2XX.htm">FTDI D2XX drivers</a> for Mac. Follow the instructions in the Readme file included in that download.</p>
+
+<p>You will then need to download and install a modified version of PyUSB especially for Mac, available here: <a href="PyUSB-1.6-fizzisist-mac.tar.gz.html">PyUSB-1.6-fizzisist-mac.tar.gz</a> <small>[1.7 MB]</small>. The installation instructions are exactly the same as for Linux.</p>
+
+<p>If you previously installed the FTDI serial drivers, you will need to unload that extension before running x6500-miner. Do this by running this command in the Terminal:</p>
+
+<pre><code>sudo kextunload /System/Library/Extensions/FTDIUSBSerialDriver.kext
+</code></pre>
+
+<p>That's it!</p>
+
+<h1>Using x6500-miner</h1>
+
+<p>There are two python scripts that you will need to use to mine with an X6500. The first is <code>program.py</code>, which will program the FPGA and prepare it for bitcoin mining. This needs to be run every time power is removed from the board or if you want to load a different bitstream. The second script is <code>mine.py</code>, which handles the communication between the pool and the X6500.</p>
+
+<h3>program.py</h3>
+
+<pre><code>Usage: program.py [-d &amp;lt;devicenum&amp;gt;] [-c &amp;lt;chain&amp;gt;] &amp;lt;path-to-bitstream-file&amp;gt;
+
+Options:
+  -h, --help            show this help message and exit
+  -d DEVICENUM, --devicenum=DEVICENUM
+                        Device number, optional. If left out, the first available 
+                        device will be opened.
+  -c CHAIN, --chain=CHAIN
+                        JTAG chain number, can be 0, 1, or 2 for both FPGAs on
+                        the board (default 2)
+  -v, --verbose         Verbose logging
+      &lt;/pre&gt;
+
+      &lt;h4&gt;mine.py&lt;/h4&gt;
+      &lt;pre&gt;
+Usage: mine.py [-d &lt;devicenum&gt;] [-c &lt;chain&gt;] -u &lt;pool-url&gt; -w &lt;user:pass&gt;
+</code></pre>
+
+<h3>mine.py</h3>
+
+<pre><code>Options:
+  -h, --help            show this help message and exit
+  -d DEVICENUM, --devicenum=DEVICENUM
+                        Device number, optional. If left out, the first available 
+                        device will be opened.
+  -c CHAIN, --chain=CHAIN
+                        JTAG chain number, can be 0, 1, or 2 for both FPGAs on
+                        the board (default 2)
+  -i GETWORK_INTERVAL, --interval=GETWORK_INTERVAL
+                        Getwork interval in seconds (default 20)
+  -v, --verbose         Verbose logging
+  -u URL, --url=URL     URL for the pool or bitcoind server, e.g. pool.com:8337
+  -w WORKER, --worker=WORKER
+                        Worker username and password for the pool, e.g. user:pass
+</code></pre>
+
+<h3>Note about Device Numbers</h3>
+
+<p><p>The first X6500 you connect will be device 0, and go up from there. If you disconnect a device, the device numbers may change. You can check them by running <code>listDevices.py</code>. This will print a list of connected devices and their serial numbers.</p><br />
+<p>If you have multiple X6500s connected to your computer, the software will automatically pick the next available device. To override this behavior, you will need to specify a <code>-d</code> option, where the devicenum is the one shown in the output from <code>listDevices.py</code>.</p></p>
+
+<h3>Bitstream:</h3>
+
+<p><p>You will need to provide the software with a bitstream to configure the FPGAs before you start mining. Download and extract a bitstream from <a href="../bitstreams.html">Bitstreams</a>. It's recommended that you extract the bitstream into a folder called bitstreams inside the x6500-miner folder.</p></p>
+
+<h3>Windows Usage:</h3>
+
+<p>Open a command prompt (Start->Run, then type "cmd"), and "cd" to the x6500-miner directory. Once there, run</p>
+
+<pre><code>python.exe program.py bitstreams\fpgaminer_133mhz.bit
+</code></pre>
+
+<p>Where the last argument is the path of the bitstream you want to use for configuration of the FPGAs. After that finishes, start the miner:</p>
+
+<pre><code>python.exe mine.py -v -u mining.pool.com:8337 -w worker:pass
+</code></pre>
+
+<p>Change the url and the worker:pass. The -v argument is recommended, but you can remove that if you want a quieter output.</p>
+
+<p>To stop the miner, press ctrl-c.</p>
+
+<h3>Linux Usage:</h3>
+
+<p>On Linux, you will need to make a few small changes. First, after you connect a board, you need to disable the FTDI serial I/O driver. To do this, run:</p>
+
+<pre><code>sudo rmmod ftdi_sio
+</code></pre>
+
+<p>Then, you can program the board with:</p>
+
+<pre><code>sudo python program.py bitstreams/fpgaminer_133mhz.bit
+</code></pre>
+
+<p>And, start the miner:</p>
+
+<pre><code>sudo python mine.py -v -u mining.pool.com:8337 -w worker:pass
+</code></pre>
+
+<h3>Mac Usage:</h3>
+
+<p>On a Mac, you can unload the FTDI serial driver once using:</p>
+
+<pre><code>sudo kextunload /System/Library/Extensions/FTDIUSBSerialDriver.kext
+</code></pre>
+
+<h3>Advanced:</h3>
+
+<p>If you have an X6000 (single FPGA board), would like to use only one of the FPGAs on your X6500, or want to configure each FPGA differently, you can add a <code>-c</code> option. This will tell the program to only address one of the two "chains" on the board. On the X6500, each FPGA is on it's own chain, so FPGA0 is <code>-c 0</code> and FPGA1 is <code>-c 1</code>. The FPGA on the X6000 is on chain 0. A <code>-c 2</code> argument addresses both chains (the default).</p>
+
+<p>You can also experiment with the interval between getwork requests. Each FPGA gets a different job and works on each independently. By default, the getwork interval is 20 seconds. Ideally, you should request work after calculating 2^32 hashes, which takes 32 seconds at 133 MH/s. You may find that a different interval works better, especially if you're running the miner faster or slower.</p>
+
+<p>The status line at the bottom of the mine.py output shows the following information:</p>
+
+<p>With <code>-v</code> option:</p>
+
+<pre><code>HASHRATE | FPGA#: ACCEPTED/REJECTED/INVALID REJ_PERCENT | FPGA#: ACCEPTED/REJECTED/INVALID REJ_PERCENT | RUNNING_TIME | DEVICE_SERIAL
+</code></pre>
+
+<p>Without <code>-v</code> option:</p>
+
+<pre><code>HASHRATE | TOTAL_ACCEPTED/TOTAL_REJECTED/TOTAL_INVALID REJ_PERCENT
+</code></pre>
+
+<p>Calculating the hashrate on an FPGA is very different from on a GPU. Actually, unless the FPGA is malfunctioning, it will consistently calculate hashes at or very near the clock rate you drive it with. There's no feedback that hashes are being calculated, except by the occasional "golden" nonce returned by the FPGAs. The hashrate displayed in the software is based on the number of nonces received from the FPGAs, averaged over the last hour of running time.</p>
+
+<p>To program your board and start the miner immediately when finished, you can combine the two commands in a single command:</p>
+
+<pre><code>sudo python program.py bitstreams/fpgaminer_133mhz.bit &amp;&amp; \
+sudo python mine.py -v -u mining.pool.com:8337 -w worker:pass
+</code></pre>
+  </article>
+
+</section>
+
+  <footer>
+    <p>© 2016 FPGA Mining LLC</p>
+  </footer>
+
+</body>
+
+</html>

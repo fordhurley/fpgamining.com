@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  <title>FPGA Mining - MPBM on Windows</title>
+  <meta charset="utf-8" />
+  <meta name="description" content="FPGA Mining Hardware" />
+  <meta name="keywords" content="bitcoin, fpga, mining" />
+  <meta name="robots" content="index, follow" />
+
+  <link rel="shortcut icon" href="../../assets/images/favicon.png" type="image/png" />
+  <link rel="icon" href="../../assets/images/favicon.png" type="image/png" />
+  <link rel="apple-touch-icon" href="../../assets/images/apple-touch-icon.png" />
+  
+  <link rel="alternate" type="application/rss+xml" href="../../news/feed" title="FPGA Mining News Feed" />
+
+  <link rel="stylesheet" href="../../assets/styles/styles.css" />
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-1675503-7']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+</head>
+
+<body>
+
+  <header>
+    <h1><a href="../../index.html"><img src="../../assets/images/logo.png" alt="FPGA Mining" /></a></h1>
+  </header><nav class="menu">
+  <ul>
+        <li><a href="../../index.html">Home</a></li>
+        <li><a href="../../products.html">Products</a></li>
+        <li><a class="active" href="../../documentation.html">Documentation</a></li>
+        <li><a href="../../news.1.html">News</a></li>
+        <li><a href="../../gallery.html">Gallery</a></li>
+        <li><a href="../../contact.html">Contact</a></li>
+        <li><a href="../../buy.html">Buy</a></li>
+      </ul>
+</nav><nav class="submenu">
+  <ul>
+        <li><a href="../hardware.html">Hardware</a></li>
+        <li><a class="active" href="../software.html">Software</a></li>
+        <li><a href="../firmware.html">Firmware</a></li>
+                
+  </ul>
+</nav>
+
+<section class="content">
+
+  <article>
+    <h1>MPBM on Windows</h1>
+    <p>Windows users now have the option of using the incredibly simple X6500 Easy Package for Windows. Download it now to get started:</p>
+
+<p style="text-align: center; font-size: 120%">
+<a href="http://www.bitcoin-mining.com/X6500_Easy_Package_For_Windows_20120406a.zip">X6500 Easy Package for Windows</a>
+</p>
+
+<p>This package will help get you going with your X6500 FPGA Mining board quickly and easily. Included is the driver installation program, Modular Python Bitcoin Miner, and all currently available mining firmware.</p>
+
+<h3>Instructions</h3>
+
+<ol>
+<li><p>Download and unzip the <a href="http://www.bitcoin-mining.com/X6500_Easy_Package_For_Windows_20120406a.zip">X6500 Easy Package for Windows</a>.</p></li>
+<li><p>Read the <a href="../hardware/setup.html">Hardware Setup Guide</a>.</p></li>
+<li><p>Make sure your X6500 is connected to a USB port and has power.</p></li>
+<li><p>Run <code>X6500_FPGA_Miner_Driver_20120405b.exe</code> (found in the Easy Package, or on it's own <a href="https://github.com/downloads/fpgaminer/FPGA-Mining-Driver-Install/X6500_FPGA_Miner_Driver_20120405b.exe">here</a>) to install the X6500 libusb driver.</p></li>
+<li><p>Now you can run <code>mpbm.exe</code> in mpbm-v0.1.0beta to begin mining!</p></li>
+</ol>
+
+<h3>After Installation</h3>
+
+<p>Navigate to <a href="http://127.0.0.1:8832">http://127.0.0.1:8832</a> to access MPBM's Web Interface. Username and password default to admin/mpbm.</p>
+
+<p>MPBM should detect all of your X6500 miners, and upload the default mining firmware to them. After the firmware has been uploaded, mining will begin and you should see shares accepted on MPBM's Web Interface.</p>
+
+<h3>Improve Mining Performance</h3>
+
+<p>After you have verified that everything is working, it's time to load more powerful mining firmware into your X6500. Adjust the worker configuration by going to Workers->X6500 hotplug manager in MPBM's Web Interface. Set the Firmware File Location to any of the available mining firmwares. This package comes with all currently available firmware. If your X6500 is operating correctly, <code>ztexmerge_200mhz.bit</code> will give you the best performance.</p>
+
+<p><em>Package assembled by fpgaminer on April 6th, 2012</em></p>
+  </article>
+
+</section>
+
+  <footer>
+    <p>© 2016 FPGA Mining LLC</p>
+  </footer>
+
+</body>
+
+</html>

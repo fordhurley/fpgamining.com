@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  <title>FPGA Mining - Molex Modification</title>
+  <meta charset="utf-8" />
+  <meta name="description" content="FPGA Mining Hardware" />
+  <meta name="keywords" content="bitcoin, fpga, mining" />
+  <meta name="robots" content="index, follow" />
+
+  <link rel="shortcut icon" href="../../../assets/images/favicon.png" type="image/png" />
+  <link rel="icon" href="../../../assets/images/favicon.png" type="image/png" />
+  <link rel="apple-touch-icon" href="../../../assets/images/apple-touch-icon.png" />
+  
+  <link rel="alternate" type="application/rss+xml" href="../../../news/feed" title="FPGA Mining News Feed" />
+
+  <link rel="stylesheet" href="../../../assets/styles/styles.css" />
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-1675503-7']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+</head>
+
+<body>
+
+  <header>
+    <h1><a href="../../../index.html"><img src="../../../assets/images/logo.png" alt="FPGA Mining" /></a></h1>
+  </header><nav class="menu">
+  <ul>
+        <li><a href="../../../index.html">Home</a></li>
+        <li><a href="../../../products.html">Products</a></li>
+        <li><a class="active" href="../../../documentation.html">Documentation</a></li>
+        <li><a href="../../../news.1.html">News</a></li>
+        <li><a href="../../../gallery.html">Gallery</a></li>
+        <li><a href="../../../contact.html">Contact</a></li>
+        <li><a href="../../../buy.html">Buy</a></li>
+      </ul>
+</nav><nav class="submenu">
+  <ul>
+        <li><a class="active" href="../../hardware.html">Hardware</a></li>
+        <li><a href="../../software.html">Software</a></li>
+        <li><a href="../../firmware.html">Firmware</a></li>
+                
+  </ul>
+</nav>
+
+<section class="content">
+
+  <article>
+    <h1>Molex Modification</h1>
+    <p>The purpose of this guide is to show you one way to easily modify your Molex 4-pin connector to supply 12V to the X6500 FPGA Miner rev 2 instead of the usual 5V.</p>
+
+<h3>Basic Idea</h3>
+
+<p>Most ATX power supplies can output a lot of power on the 12V rail (and some even have multiple rails). If you would like to power many X6500s on the same power supply, you will most likely exceed the capability of the 5V rail. To overcome this, you can easily make an adapter cable that will bring the 12V rail to the correct pin to power the X6500.</p>
+
+<p>In doing this, you are bringing the 12V wire over to the pin where 5V is usually applied. If you forget and plug this adapter into some other device, you will probably blow it up. I recommend clearly marking your modified adapter so that you remember that you did this to it.</p>
+
+<h3>Step-by-step</h3>
+
+<p>You can make this modification to any of the available Molex connectors on your power supply, but the safest way to do it is to use a short adapter cable so that you leave the PSU connectors unmodified. Most case fans come with a Molex adapter that would be perfect for this.</p>
+
+<p>The goal is to remove the 5V line and replace it with the 12V line. Most adapters will use a red wire for 5V, a yellow wire for 12V, and black wires for ground.</p>
+
+<p>Molex connectors use crimp terminals. These can usually be removed from the connector housing and popped back into place in a different slot. This will require a sharp tool, like a pair of fine tipped tweezers or perhaps a toothpick.</p>
+
+<ol>
+<li><p>First, find the female connector on your adapter. This is the connector that will be plugged directly into the X6500. This can be a bit confusing because the connector housing fits into the connector on the board, but the "female" part refers to the actual pins/sockets themselves. Try plugging this in to your X6500 to be sure which one is which.</p></li>
+<li><p>Now, remove the 5V line. You will do this by sticking the tool into the connector side (not the wire side) and pressing in two small tabs on the side of the pin or socket. When those are pressed in, you will be able to easily pull on the wire and the pin/socket will slide right out of the housing. Do this to both ends of the adapter, and put that wire away somewhere. You won't be needing it unless you want to restore the adapter to the original state later.</p></li>
+<li><p>Now, remove the 12V socket from the female connector. Leave it attached to the male connector.</p></li>
+<li><p>At this point, you might need to bend those tiny tabs back out if they bent into the socket and stayed bent in. Do this by inserting your tool inside the socket and gently push the tabs outward. Be careful doing this because you don't want to bend the tabs so much that they break off.</p></li>
+<li><p>Finally, insert the socket into the connector housing in the hole where the 5V pin was originally. This means that the 12V wire (yellow) will cross over the two ground wires (black).</p></li>
+<li><p>Admire your handiwork!</p></li>
+</ol>
+
+<p><img src="http://dl.dropbox.com/u/13472215/molex_12V-5V_s.JPG" alt="FPGA Mining" /></p>
+  </article>
+
+</section>
+
+  <footer>
+    <p>© 2016 FPGA Mining LLC</p>
+  </footer>
+
+</body>
+
+</html>
